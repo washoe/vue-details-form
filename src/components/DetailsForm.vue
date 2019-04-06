@@ -1,23 +1,17 @@
 <template>
-  <form  @submit.prevent="handleSubmit">
-    <fieldset>
-      <details>
-        <summary>
-          <legend>Part 1</legend>
-        </summary>
+  <form @submit.prevent="handleSubmit">
+    <FormSection section-title="Part 1">
         <label for="input1">Input 1</label>
         <input type="text" id="input1" name="input1">
-      </details>
-    </fieldset>
-    <fieldset>
-      <details>
-        <summary>
-          <legend>Part 2</legend>
-        </summary>
+    </FormSection>
+    <FormSection section-title="Part 2">
         <label for="input2">Input 2</label>
         <input type="date" id="input2" name="input2">
-      </details>
-    </fieldset>
+    </FormSection>
+    <FormSection section-title="Part 3">
+      <label for="input3">Input 3</label>
+      <input type="date" id="input3" name="input3">
+    </FormSection>
     <fieldset>
       <button type="submit">Submit</button>
     </fieldset>
@@ -25,12 +19,14 @@
 </template>
 
 <script>
+import FormSection from "./FormSection";
 export default {
   name: "DetailsForm",
+  components: {
+    FormSection
+  },
   methods: {
-    handleSubmit: function (event) {
-      
-    }
+    handleSubmit: function() {}
   }
 };
 </script>
