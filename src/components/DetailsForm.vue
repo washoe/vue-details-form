@@ -10,7 +10,10 @@
     </FormSection>
     <FormSection section-title="Part 3">
       <label for="input3">Input 3</label>
-      <input type="date" id="input3" name="input3">
+      <select id="input3" name="input3">
+        <option>option 1</option>
+        <option>option 2</option>
+      </select>
     </FormSection>
     <fieldset>
       <button type="submit">Submit</button>
