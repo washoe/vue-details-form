@@ -16,10 +16,10 @@ export default {
     sectionTitle: String
   },
   methods: {
-    summaryClicked: ()=> {
+    summaryClicked: event => {
       // Close all other details elements
-      document
-        .querySelectorAll("details[open]")
+      [...document.querySelectorAll("details[open]")]
+        .filter(el => el.querySelector("summary") !== event.target)
         .forEach(el => el.removeAttribute("open"));
     }
   }
