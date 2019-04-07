@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     closeOtherDetails: function() {
-      closeOtherDetails(this.$el);
+      closeOtherDetails(this.$el.querySelector('details'));
     }
   }
 };
