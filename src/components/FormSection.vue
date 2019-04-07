@@ -19,7 +19,7 @@ export default {
     summaryClicked: event => {
       // Close all other details elements
       [...document.querySelectorAll("details[open]")]
-        .filter(el => el.querySelector("summary") !== event.target)
+        .filter(el => !el.querySelector("summary").isSameNode(event.target))
         .forEach(el => el.removeAttribute("open"));
     }
   }
