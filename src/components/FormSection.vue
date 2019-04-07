@@ -1,7 +1,7 @@
 <template>
   <fieldset>
     <details>
-      <summary @click="summaryClicked">
+      <summary @click="closeOtherDetails">
         <legend>{{sectionTitle}}</legend>
       </summary>
       <slot/>
@@ -13,6 +13,7 @@
 /**
  * Close all other details elements
  * @param {element} detailsElement to keep open
+ * (change event to focus to close other details before opening)
  */
 const closeOtherDetails = detailsElement => {
   [...document.querySelectorAll("details[open]")]
@@ -25,7 +26,7 @@ export default {
     sectionTitle: String
   },
   methods: {
-    summaryClicked: function() {
+    closeOtherDetails: function() {
       closeOtherDetails(this.$el);
     }
   }
