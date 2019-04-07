@@ -10,17 +10,23 @@
 </template>
 
 <script>
+/**
+ * Close all other details elements
+ * @param {element} detailsElement to keep open
+ */
+const closeOtherDetails = detailsElement => {
+  [...document.querySelectorAll("details[open]")]
+    .filter(el => !el.isSameNode(detailsElement))
+    .forEach(el => el.removeAttribute("open"));
+};
 export default {
   name: "FormSection",
   props: {
     sectionTitle: String
   },
   methods: {
-    summaryClicked: event => {
-      // Close all other details elements
-      [...document.querySelectorAll("details[open]")]
-        .filter(el => !el.querySelector("summary").isSameNode(event.target))
-        .forEach(el => el.removeAttribute("open"));
+    summaryClicked: function() {
+      closeOtherDetails(this.$el);
     }
   }
 };
